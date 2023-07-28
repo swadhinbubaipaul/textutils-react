@@ -56,22 +56,39 @@ export default function TextForm({ heading, mode, showAlert }) {
             }}
           ></textarea>
         </div>
-        <button className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>
+        <button
+          className="btn btn-primary mx-2 my-2"
+          onClick={handleUpClick}
+          disabled={text.length === 0}
+        >
           Convert to Uppercase
         </button>
-        <button className="btn btn-primary mx-2 my-2" onClick={handleLowClick}>
+        <button
+          className="btn btn-primary mx-2 my-2"
+          onClick={handleLowClick}
+          disabled={text.length === 0}
+        >
           Convert to Lowercase
         </button>
         <button
           className="btn btn-primary mx-2 my-2"
           onClick={handleRemoveExtraSpaces}
+          disabled={text.length === 0}
         >
           Remove Extra Spaces
         </button>
-        <button className="btn btn-danger mx-2 my-2" onClick={handleClearClick}>
+        <button
+          className="btn btn-danger mx-2 my-2"
+          onClick={handleClearClick}
+          disabled={text.length === 0}
+        >
           Clear Text
         </button>
-        <button className="btn btn-success  mx-2 my-2" onClick={handleCopyText}>
+        <button
+          className="btn btn-success  mx-2 my-2"
+          onClick={handleCopyText}
+          disabled={text.length === 0}
+        >
           Copy Text
         </button>
       </div>
@@ -102,7 +119,7 @@ export default function TextForm({ heading, mode, showAlert }) {
           style={{
             backgroundColor: mode === "dark" ? "rgb(66 72 95)" : "white",
           }}
-          placeholder="Enter something in the textbox to preview it here"
+          placeholder="Your preview will be shown here"
         ></textarea>
       </div>
     </>
