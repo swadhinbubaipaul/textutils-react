@@ -49,7 +49,7 @@ function App() {
             </div>
           }
         />
-        <Route path="about" element={<About />} />
+        <Route path="about" element={<About mode={darkMode} />} />
         <Route path="*" element={<h1>Page not found!</h1>} />
       </Routes>
     </>

@@ -1,27 +1,11 @@
-import { useState } from "react";
-
-export default function About() {
-  const [myStyle, setMyStyle] = useState({
-    color: "black",
-    backgroundColor: "white",
-  });
-  const [buttonText, setButtonText] = useState("Enable Dark Mode");
-
-  const toggleStyle = () => {
-    if (myStyle.color === "black") {
-      setMyStyle({
-        color: "white",
-        backgroundColor: "black",
-        border: "1px solid white",
-      });
-      setButtonText("Enable Light Mode");
-    } else {
-      setMyStyle({
-        color: "black",
-        backgroundColor: "white",
-      });
-      setButtonText("Enable Dark Mode");
-    }
+export default function About({ mode }) {
+  let myStyle = {
+    color: mode === "dark" ? "white" : "black",
+    backgroundColor: mode === "dark" ? "rgb(46, 50, 67)" : "white",
+  };
+  let myButtonStyle = {
+    color: mode === "dark" ? "white" : "black",
+    backgroundColor: mode === "dark" ? "rgb(72 83 115)" : "white",
   };
   return (
     <div className="container" style={myStyle}>
@@ -36,7 +20,7 @@ export default function About() {
               data-bs-target="#collapseOne"
               aria-expanded="true"
               aria-controls="collapseOne"
-              style={myStyle}
+              style={myButtonStyle}
             >
               Analyze your text
             </button>
@@ -63,7 +47,7 @@ export default function About() {
               data-bs-target="#collapseTwo"
               aria-expanded="false"
               aria-controls="collapseTwo"
-              style={myStyle}
+              style={myButtonStyle}
             >
               Free to use
             </button>
@@ -74,7 +58,7 @@ export default function About() {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body">
-              <strong>TextUtils</strong>is a free charecter counter tool that
+              <strong>TextUtils</strong> is a free charecter counter tool that
               provided instant charecter count and word count statics for a
               given text. TextUtils reports the number of words and charecter.
               Thus it is suitable for writing text with word / charecter limit.
@@ -90,7 +74,7 @@ export default function About() {
               data-bs-target="#collapseThree"
               aria-expanded="false"
               aria-controls="collapseThree"
-              style={myStyle}
+              style={myButtonStyle}
             >
               Browser Compaitability
             </button>
@@ -101,15 +85,12 @@ export default function About() {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body">
-              <strong>TextUtils</strong>works in any web browser such as Chrome
+              <strong>TextUtils</strong> works in any web browser such as Chrome
               , Firefox ,Internet Explorer ,Safari,Opera etc.
             </div>
           </div>
         </div>
       </div>
-      <button className="btn btn-primary my-2" onClick={toggleStyle}>
-        {buttonText}
-      </button>
     </div>
   );
 }

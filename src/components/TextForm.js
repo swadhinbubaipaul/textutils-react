@@ -35,7 +35,7 @@ export default function TextForm({ heading, mode, showAlert }) {
   return (
     <>
       <div className="container" data-bs-theme={mode}>
-        <h2 style={{ textAlign: "center" }} className="py-4">
+        <h2 style={{ textAlign: "center" }} className="py-4 pt-0">
           Text Analysis and Converter
         </h2>
         <div className="mb-3">
@@ -51,24 +51,27 @@ export default function TextForm({ heading, mode, showAlert }) {
             onChange={handleOnChange}
             value={text}
             placeholder="Enter text here"
+            style={{
+              backgroundColor: mode === "dark" ? "rgb(66 72 95)" : "white",
+            }}
           ></textarea>
         </div>
-        <button className="btn btn-primary me-2" onClick={handleUpClick}>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>
           Convert to Uppercase
         </button>
-        <button className="btn btn-primary me-2" onClick={handleLowClick}>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleLowClick}>
           Convert to Lowercase
         </button>
         <button
-          className="btn btn-primary me-2"
+          className="btn btn-primary mx-2 my-2"
           onClick={handleRemoveExtraSpaces}
         >
           Remove Extra Spaces
         </button>
-        <button className="btn btn-danger me-2" onClick={handleClearClick}>
+        <button className="btn btn-danger mx-2 my-2" onClick={handleClearClick}>
           Clear Text
         </button>
-        <button className="btn btn-success" onClick={handleCopyText}>
+        <button className="btn btn-success  mx-2 my-2" onClick={handleCopyText}>
           Copy Text
         </button>
       </div>
@@ -79,12 +82,13 @@ export default function TextForm({ heading, mode, showAlert }) {
         <h3 className="py-2">Text summary</h3>
         <p>
           Number of words:
-          {text.trim().length === 0 ? 0 : text.trim().split(" ").length}
+          {text.split(" ").filter((element) => element.length !== 0).length}
         </p>
         <p>Number of characters: {text.length}</p>
         <p>
           Reading time(minutes):{" "}
-          {text.trim().length === 0 ? 0 : 0.008 * text.trim().split(" ").length}
+          {text.split(" ").filter((element) => element.length !== 0).length *
+            0.008}
         </p>
         <h2 className="py-2" style={{ textAlign: "center" }}>
           Preview Document
@@ -94,6 +98,10 @@ export default function TextForm({ heading, mode, showAlert }) {
           id="preview"
           rows="6"
           value={text.length > 0 ? text : ""}
+          readOnly
+          style={{
+            backgroundColor: mode === "dark" ? "rgb(66 72 95)" : "white",
+          }}
           placeholder="Enter something in the textbox to preview it here"
         ></textarea>
       </div>
