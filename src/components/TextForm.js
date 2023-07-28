@@ -73,6 +73,7 @@ export default function TextForm({ heading, mode, showAlert }) {
         </button>
       </div>
       <div
+        data-bs-theme={mode}
         className={`container my-3 text-${mode === "light" ? "dark" : "light"}`}
       >
         <h3 className="py-2">Text summary</h3>
