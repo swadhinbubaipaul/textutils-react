@@ -52,7 +52,7 @@ export default function TextForm({ heading, mode, showAlert }) {
             value={text}
             placeholder="Enter text here"
             style={{
-              backgroundColor: mode === "dark" ? "rgb(66 72 95)" : "white",
+              backgroundColor: mode === "dark" ? "rgb(53 58 77)" : "white",
             }}
           ></textarea>
         </div>
@@ -117,7 +117,7 @@ export default function TextForm({ heading, mode, showAlert }) {
           value={text.length > 0 ? text : ""}
           readOnly
           style={{
-            backgroundColor: mode === "dark" ? "rgb(66 72 95)" : "white",
+            backgroundColor: mode === "dark" ? "rgb(53 58 77)" : "white",
           }}
           placeholder="Your preview will be shown here"
         ></textarea>

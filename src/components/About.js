@@ -5,7 +5,7 @@ export default function About({ mode }) {
   };
   let myButtonStyle = {
     color: mode === "dark" ? "white" : "black",
-    backgroundColor: mode === "dark" ? "rgb(72 83 115)" : "white",
+    backgroundColor: mode === "dark" ? "rgb(53 58 77)" : "white",
   };
   return (
     <div className="container" style={myStyle}>
