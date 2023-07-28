@@ -3,6 +3,8 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import Alert from "./components/Alert";
+import About from "./components/About";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   const [darkMode, setDarkMode] = useState("light");
@@ -34,13 +36,22 @@ function App() {
     <>
       <Navbar title="TextUtils" mode={darkMode} toggleMode={toggleMode} />
       <Alert alert={alert} />
-      <div className="container my-3">
-        <TextForm
-          heading="Enter the text to analyze"
-          mode={darkMode}
-          showAlert={showAlert}
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <div className="container my-3">
+              <TextForm
+                heading="Enter the text to analyze"
+                mode={darkMode}
+                showAlert={showAlert}
+              />
+            </div>
+          }
         />
-      </div>
+        <Route path="about" element={<About />} />
+        <Route path="*" element={<h1>Page not found!</h1>} />
+      </Routes>
     </>
   );
 }
