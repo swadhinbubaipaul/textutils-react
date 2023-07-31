@@ -99,12 +99,12 @@ export default function TextForm({ heading, mode, showAlert }) {
         <h3 className="py-2">Text summary</h3>
         <p>
           Number of words:
-          {text.split(" ").filter((element) => element.length !== 0).length}
+          {text.split(/\s+/g).filter((element) => element.length !== 0).length}
         </p>
         <p>Number of characters: {text.length}</p>
         <p>
           Reading time(minutes):{" "}
-          {text.split(" ").filter((element) => element.length !== 0).length *
+          {text.split(/\s+/g).filter((element) => element.length !== 0).length *
             0.008}
         </p>
         <h2 className="py-2" style={{ textAlign: "center" }}>
